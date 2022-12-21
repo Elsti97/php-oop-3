@@ -1,10 +1,13 @@
 <?php
 
 include_once __DIR__ . '/prodotto.php';
+include_once __DIR__ . '/../trait/anno.php';
 
 class libro extends prodotto {
   public $pagine;
   public $copertina;
+
+  use Anno;
 
   public function __construct(
     String $nome,
@@ -15,10 +18,12 @@ class libro extends prodotto {
     String $immagine,
 
     Int $pagine,
-    String $copertina
+    String $copertina,
+    Int $anno
     ) {
     $this->pagine = $pagine;
     $this->copertina = $copertina;
+    $this->anno = $anno;
     parent::__construct($nome,$autore,$prezzo,$generi,$pubblicato,$immagine );
   }
 }
